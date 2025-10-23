@@ -26,6 +26,18 @@ function updateTime() {
   }
 }
 
+let houstonElement = document.querySelector("#houston");
+if (houstonElement) {
+  let houstonDateElement = houstonElement.querySelector(".date");
+  let houstonTimeElement = houstonElement.querySelector(".time");
+  let houstonTime = moment().tz("America/Houston");
+
+  houstonDateElement.innerHTML = houstonTime.format("MMMM	Do YYYY");
+  houstonTimeElement.innerHTML = houstonTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+}
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "current") {
@@ -44,6 +56,7 @@ function updateCity(event) {
     "A"
   )}</small></div>
   </div>
+  <a href="index.html">All cities</a>
   `;
 }
 
